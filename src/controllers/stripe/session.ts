@@ -34,7 +34,7 @@ export const createSession = async (
 
     return res.status(200).json(session);
   } catch (err) {
-    console.error('[stripeService] Error creating session on Stripe', err);
+    console.error('[createSession] Error creating session on Stripe', err);
 
     return res
       .status(500)
@@ -60,7 +60,7 @@ export const getSession = async (
       req.params.sessionId,
     );
 
-    console.log('[stripeService] Session found: ', JSON.stringify(session));
+    console.log('[getSession] Session found: ', JSON.stringify(session));
 
     const responseBody = {
       status: session.status,
@@ -78,7 +78,7 @@ export const getSession = async (
 
     return res.status(200).json(responseBody);
   } catch (err) {
-    console.error('[stripeService] Error retrieving session on Stripe', err);
+    console.error('[getSession] Error retrieving session on Stripe', err);
 
     return res
       .status(500)

@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import * as controller from '../../controllers/stripe';
+import * as controller from '../controllers/stripe';
 
 const router: Router = Router();
 

@@ -14,7 +14,7 @@ export const handleStripeWebhook = async (
 ) => {
   const body = req.body;
 
-  console.log('[stripeController] Event received: ', JSON.stringify(body));
+  console.log('[stripeController] Request received: ', JSON.stringify(body));
 
   switch (body.type) {
     case StripeWebhookTypes.CheckoutSessionCompleted:
