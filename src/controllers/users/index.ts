@@ -9,12 +9,12 @@ export const createUser = async (
 ) => {
   console.log('[createUser] Request received: ', JSON.stringify(req.body));
 
-  try {
-    const body = req.body;
+  const body = req.body;
 
-    const prisma = getPrismaClient();
+  const prisma = getPrismaClient();
 
-    return prisma.$transaction(async (tx) => {
+  return prisma.$transaction(async (tx) => {
+    try {
       const organisation = await tx.organisation.create({
         data: {
           name: body.organisation,
@@ -25,7 +25,7 @@ export const createUser = async (
         data: {
           organisationId: organisation.id,
           firstName: body.firstName,
-          lastName: body.surname,
+          lastName: body.lastName,
           email: body.email,
           birthdate: body.birthdate,
           cognitoId: body.cognitoId,
@@ -36,12 +36,12 @@ export const createUser = async (
       });
 
       return res.status(200).json(user);
-    });
-  } catch (err) {
-    console.error('[createUser] Error creating user', err);
+    } catch (err) {
+      console.error('[createUser] Error creating user', err);
 
-    return res
-      .status(500)
-      .json({ error: 'There was an error creating the user' });
-  }
+      return res
+        .status(500)
+        .json({ error: 'There was an error creating the user' });
+    }
+  });
 };

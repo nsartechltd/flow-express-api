@@ -16,12 +16,19 @@ spec:
         - name: api
           image: 864144207131.dkr.ecr.eu-west-2.amazonaws.com/flow-api:latest
           imagePullPolicy: IfNotPresent
+          env:
+            - DATABASE_URL: {{ .Values.databaseUrl }}
+            - STRIPE_SECRET_KEY: {{ .Values.stripeSecretKey }}
+            - STRIPE_WEBHOOK_SECRET: {{ .Values.stripeWebhookSecret }}
+            - COGNITO_USER_POOL_ID: {{ .Values.cognitoUserPoolId }}
+            - COGNITO_CLIENT_ID: {{ .Values.cognitoClientId }}
+            - FLOW_APP_URL: {{ .Values.flowAppUrl }}
           ports:
             - containerPort: 3000
-          # resources:
-          #   limits:
-          #     cpu: '128Mi'
-          #     memory: 500
+          resources:
+            limits:
+              cpu: '128Mi'
+              memory: 500
       imagePullSecrets:
             - name: flow-api-secret
 ---
