@@ -9,6 +9,7 @@ on:
 env:
   ECR_REPOSITORY: flow-api
   IMAGE_TAG: ${{ github.sha }}
+  EKS_CLUSTER_NAME: flow-dev
 
 jobs:
   deploy-dev:
