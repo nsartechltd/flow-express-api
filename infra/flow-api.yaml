@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: 308697347926.dkr.ecr.eu-west-2.amazonaws.com/flow-api:latest
+          image: DOCKER_IMAGE
           imagePullPolicy: IfNotPresent
           env:
             - DATABASE_URL: {{ .Values.databaseUrl }}
