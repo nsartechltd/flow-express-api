@@ -17,12 +17,12 @@ spec:
           image: DOCKER_IMAGE
           imagePullPolicy: IfNotPresent
           env:
-            - DATABASE_URL: {{ .Values.databaseUrl }}
-            - STRIPE_SECRET_KEY: {{ .Values.stripeSecretKey }}
-            - STRIPE_WEBHOOK_SECRET: {{ .Values.stripeWebhookSecret }}
-            - COGNITO_USER_POOL_ID: {{ .Values.cognitoUserPoolId }}
-            - COGNITO_CLIENT_ID: {{ .Values.cognitoClientId }}
-            - FLOW_APP_URL: {{ .Values.flowAppUrl }}
+            - DATABASE_URL: DATABASE_URL_VALUE
+            - STRIPE_SECRET_KEY: STRIPE_SECRET_KEY_VALUE
+            - STRIPE_WEBHOOK_SECRET: STRIPE_WEBHOOK_SECRET_VALUE
+            - COGNITO_USER_POOL_ID: COGNITO_USER_POOL_ID_VALUE
+            - COGNITO_CLIENT_ID: COGNITO_CLIENT_ID_VALUE
+            - FLOW_APP_URL: FLOW_APP_URL_VALUE
           ports:
             - containerPort: 3000
           resources:
