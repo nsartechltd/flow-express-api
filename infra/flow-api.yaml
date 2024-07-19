@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: 864144207131.dkr.ecr.eu-west-2.amazonaws.com/flow-api:latest
+          image: 308697347926.dkr.ecr.eu-west-2.amazonaws.com/flow-api:latest
           imagePullPolicy: IfNotPresent
           env:
             - DATABASE_URL: {{ .Values.databaseUrl }}
