@@ -7,10 +7,10 @@ spec:
   rules:
     - http:
         paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: flow-api
-              port:
-                number: 80
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: flow-api
+                port:
+                  number: 80
