@@ -51,9 +51,9 @@ spec:
                   key: flowCognitoClientId
           ports:
             - containerPort: 3000
-          resources:
-            limits:
-              cpu: '128Mi'
-              memory: 500
+          # resources:
+          #   limits:
+          #     cpu: '128Mi'
+          #     memory: 500
       imagePullSecrets:
         - name: flow-api-secret
